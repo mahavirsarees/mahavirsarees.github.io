@@ -1,0 +1,110 @@
+/* Mahavir Sarees — home page "rich ethnic" layer.
+   Loaded only by the home page (index.html), on top of styles.css, so product pages are untouched. */
+@font-face{font-family:"Playfair Display";font-style:normal;font-weight:400 900;font-display:swap;src:url(assets/fonts/playfair.woff2) format("woff2")}
+@font-face{font-family:"Playfair Display";font-style:italic;font-weight:400 900;font-display:swap;src:url(assets/fonts/playfair-italic.woff2) format("woff2")}
+
+.home{--display:"Playfair Display","Cormorant Garamond",Georgia,"Times New Roman",serif;--gold-d:#8A621C;--gold-t:#9C6F1F}
+
+/* Headings: bold serif display, gold ornamental flourish */
+.home h2{font-family:var(--display);font-weight:700;letter-spacing:0;line-height:1.12;font-size:clamp(2rem,5.2vw,3.2rem)}
+.home h2 em{font-style:italic;font-weight:600;color:var(--gold-t)}
+.home .kicker{color:var(--gold-d);letter-spacing:.24em}
+.home .sec-head .divider{width:min(260px,70vw);height:32px;margin:16px auto 18px;background:url(assets/orn/flourish.svg) center/contain no-repeat}
+.home .sec-head .divider>*{display:none}
+.home .sec-head.light .divider{filter:brightness(1.35)}
+.home .card h3,.home .p-body h3{font-family:var(--display);font-weight:700;font-size:1.35rem;letter-spacing:0}
+
+/* Zari border dividers between sections */
+.zari{height:24px;background:url(assets/orn/zari.svg) center/48px 24px repeat-x;margin:0;position:relative;z-index:1}
+.home .marquee{border-block:0;position:relative;padding:18px 0;background:linear-gradient(180deg,#5A0B17,var(--maroon) 30%,var(--maroon) 70%,#5A0B17)}
+.home .marquee::before,.home .marquee::after{content:"";position:absolute;left:0;right:0;height:6px;background:url(assets/orn/zari.svg) center/24px 12px repeat-x;opacity:.9}
+.home .marquee::before{top:3px}.home .marquee::after{bottom:3px}
+.home .marquee-track{font-family:var(--display);font-weight:600;letter-spacing:.14em;font-size:1rem}
+
+/* Subtle paisley/bootah texture + mandala corners on the light sections */
+.home .hero,.home .collections,.home .store,.home .visit{background-image:url(assets/orn/bootah.svg),var(--sec-bg,none);background-size:90px 90px,auto}
+.home .hero{--sec-bg:radial-gradient(120% 90% at 20% 0%,#FBF6EE 0%,var(--ivory) 45%,var(--sand) 100%)}
+.home .collections{--sec-bg:linear-gradient(var(--ivory),var(--ivory))}
+.home .store{--sec-bg:linear-gradient(var(--sand),var(--sand))}
+.home .visit{--sec-bg:linear-gradient(180deg,var(--sand),var(--ivory))}
+.home .collections,.home .store,.home .visit,.home .lbx{overflow:hidden}
+.home .collections::before,.home .collections::after,.home .store::before,.home .store::after,
+.home .visit::before,.home .lbx::before,.home .lbx::after{content:"";position:absolute;width:clamp(120px,22vw,240px);aspect-ratio:1;background:url(assets/orn/corner.svg) center/contain no-repeat;opacity:.55;pointer-events:none;z-index:0}
+.home .collections::before,.home .store::before,.home .visit::before,.home .lbx::before{top:0;left:0}
+.home .collections::after,.home .store::after,.home .lbx::after{top:0;right:0;transform:scaleX(-1)}
+.home .section>.wrap,.home .lbx>.wrap{position:relative;z-index:1}
+.home .hero::before{content:"";position:absolute;inset:clamp(10px,1.6vw,18px);border:1px solid rgba(184,134,45,.45);outline:1px solid rgba(184,134,45,.25);outline-offset:5px;pointer-events:none;z-index:0}
+.home .hero-in{position:relative;z-index:1}
+
+/* ===== Our Collection / Lookbook editorial ===== */
+.lbx{position:relative;padding:clamp(60px,9vw,110px) 0 clamp(28px,4vw,44px);color:var(--ink);background:radial-gradient(90% 70% at 50% 0%,#FBF6EE 0%,var(--ivory) 55%,var(--sand) 100%)}
+.lbx .sec-head p:last-child{color:var(--ink-2)}
+.lbx-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,2.2vw,28px);align-items:start}
+.lbx-a{grid-column:1/-1}
+.lbx-item{margin:0;position:relative;padding-top:20px;min-width:0}
+.lbx-item::before{content:"";position:absolute;top:0;left:50%;width:52px;height:30px;transform:translateX(-50%);background:url(assets/orn/finial.svg) center/contain no-repeat;z-index:2}
+.lbx-arch{position:relative;padding:7px;border:1.5px solid var(--gold);border-radius:999px 999px 16px 16px;background:linear-gradient(160deg,#FFF9EE,#F1E2C4);box-shadow:0 26px 50px -30px rgba(90,11,23,.7),inset 0 0 0 1px rgba(255,255,255,.6)}
+.lbx-arch::after{content:"";position:absolute;inset:3px;border:1px solid rgba(184,134,45,.45);border-radius:999px 999px 13px 13px;pointer-events:none}
+.lbx-arch img{width:100%;aspect-ratio:3/4;height:auto;object-fit:cover;object-position:50% 22%;border-radius:999px 999px 10px 10px;background:var(--sand);transition:transform 1s var(--ease)}
+.lbx-a .lbx-arch img{aspect-ratio:4/5}
+.lbx-item:hover .lbx-arch img{transform:scale(1.015)}
+.lbx-panel{align-self:stretch;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:6px;margin-top:20px;padding:clamp(22px,3vw,40px) clamp(14px,2vw,28px);border-radius:16px;color:var(--ivory);background:url(assets/orn/corner.svg) right -40px bottom -40px/150px no-repeat,radial-gradient(120% 90% at 50% 0%,var(--maroon-l),var(--maroon) 55%,var(--maroon-d));border:1.5px solid var(--gold);box-shadow:inset 0 0 0 5px var(--maroon),inset 0 0 0 6px rgba(217,176,94,.6),0 26px 50px -30px rgba(90,11,23,.8);overflow:hidden}
+.lbx-panel-orn{width:120px;height:18px;background:url(assets/orn/flourish.svg) center/contain no-repeat;filter:brightness(1.45)}
+.lbx-panel-k{margin:4px 0 0;font-size:.7rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-xl)}
+.lbx-panel-t{margin:0;font:700 clamp(1.25rem,2.4vw,2rem)/1.15 var(--display);color:#FFF7EA}
+.lbx-panel-t em{font-style:italic;color:var(--gold-xl)}
+.lbx-panel-p{margin:0;font-size:.88rem;line-height:1.5;color:#EBDDC6;max-width:28ch}
+.lbx-panel-a{margin-top:8px;color:var(--gold-xl);font-weight:600;font-size:.9rem;text-decoration:none;border-bottom:1px solid rgba(240,215,154,.5);padding-bottom:2px}
+.lbx-panel-a:hover{color:#fff;border-color:#fff}
+.lbx-panel-a:focus-visible{outline:3px solid var(--gold-xl);outline-offset:3px;border-radius:4px}
+@media (min-width:900px){
+  .lbx-grid{grid-template-columns:1.75fr 1fr 1fr;grid-template-rows:auto auto;align-items:stretch}
+  .lbx-a{grid-column:1;grid-row:1/3;display:flex;flex-direction:column}
+  .lbx-a .lbx-arch{flex:1;display:flex}
+  .lbx-a .lbx-arch img{aspect-ratio:auto;height:100%;min-height:0}
+  .lbx-c,.lbx-e{transform:translateY(34px)}
+  .lbx-panel{margin-top:20px}
+  .lbx-grid{padding-bottom:34px}
+}
+.lbx-banner{position:relative;margin:clamp(44px,6vw,80px) 0 0;height:clamp(380px,46vw,620px);overflow:hidden;border-block:0;isolation:isolate}
+.lbx-banner::before,.lbx-banner::after{content:"";position:absolute;left:0;right:0;height:24px;background:url(assets/orn/zari-maroon.svg) center/48px 24px repeat-x;z-index:2}
+.lbx-banner::before{top:0}.lbx-banner::after{bottom:0}
+.lbx-banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 35%;z-index:-2}
+.lbx-ban-copy{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:40px max(24px,calc((100vw - var(--wrap))/2));background:linear-gradient(90deg,rgba(58,7,16,.92) 0%,rgba(90,11,23,.78) 34%,rgba(90,11,23,.18) 62%,transparent 80%);color:var(--ivory);z-index:1}
+.lbx-ban-orn{width:150px;height:22px;background:url(assets/orn/flourish.svg) left center/contain no-repeat;filter:brightness(1.45);margin-bottom:14px}
+.lbx-ban-title{font:italic 700 clamp(2rem,5vw,3.6rem)/1.06 var(--display);margin:0;max-width:11ch;color:#FFF7EA;text-shadow:0 2px 18px rgba(0,0,0,.35)}
+.lbx-ban-hi{margin:12px 0 22px;color:var(--gold-xl);font-size:1.05rem;letter-spacing:.04em}
+.lbx-ban-btn{background:linear-gradient(135deg,var(--gold-l),var(--gold));color:#2B1A14;box-shadow:0 14px 30px -16px rgba(0,0,0,.6)}
+.lbx-ban-btn:focus-visible{outline:3px solid var(--gold-xl);outline-offset:3px}
+@media (max-width:699px){
+  .lbx-panel-p{display:none}
+  .lbx-banner{height:min(560px,125vw)}
+  .lbx-banner img{object-position:50% 30%}
+  .lbx-ban-copy{justify-content:flex-end;align-items:center;text-align:center;padding:32px 22px 48px;background:linear-gradient(0deg,rgba(58,7,16,.94) 0%,rgba(90,11,23,.75) 38%,rgba(90,11,23,.1) 62%,transparent 75%)}
+  .lbx-ban-orn{background-position:center;margin-inline:auto}
+  .lbx-ban-title{max-width:none}
+}
+.lbx .lb-credit{margin:16px auto 0;padding-inline:16px;text-align:center;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#6E5644}
+.lbx .lb-credit span{text-transform:none;letter-spacing:.02em}
+
+/* New-arrivals card + collection arches: richer gold framing */
+.home .shop{background-image:url(assets/orn/bootah.svg),linear-gradient(180deg,var(--sand),var(--ivory) 35%,var(--ivory));background-size:90px 90px,auto}
+.home .p-card{border:1.5px solid var(--gold);box-shadow:0 0 0 5px #FFFDF9,0 0 0 6px rgba(184,134,45,.5),0 28px 50px -30px rgba(90,11,23,.7)}
+.home .shop-grid{padding:6px}
+
+@media (prefers-reduced-motion:reduce){.lbx-item:hover .lbx-arch img{transform:none}}
+
+/* Store feature: Atul's storefront poster in a gold arch (home) */
+.store-feature{display:grid;gap:26px;align-items:center;margin:0 auto 44px;max-width:1040px}
+.sf-frame{margin:0;min-width:0}
+.sf-arch{position:relative;padding:9px;border:2px solid var(--gold);border-radius:50% 50% 18px 18px/16% 16% 18px 18px;background:linear-gradient(160deg,#FFF9EE,#F1E2C4);box-shadow:0 30px 60px -32px rgba(90,11,23,.75),inset 0 0 0 1px rgba(255,255,255,.6)}
+.sf-arch::after{content:"";position:absolute;inset:4px;border:1px solid rgba(184,134,45,.5);border-radius:50% 50% 15px 15px/16% 16% 15px 15px;pointer-events:none}
+.sf-arch img{display:block;width:100%;height:auto;aspect-ratio:960/1602;border-radius:50% 50% 12px 12px/15.5% 15.5% 12px 12px;background:var(--sand)}
+.sf-text{min-width:0}
+.sf-text h3{font-family:"Playfair Display",Georgia,serif;font-size:clamp(1.6rem,3.2vw,2.3rem);line-height:1.15;color:var(--maroon);margin:.25em 0 .45em}
+.sf-text h3 em{color:var(--gold);font-style:italic}
+.sf-text>p{color:var(--ink-2);margin:0 0 1em}
+.sf-facts{list-style:none;margin:0 0 1.4em;padding:0;display:grid;gap:.7em}
+.sf-facts li{padding-left:14px;border-left:2px solid var(--gold);color:var(--ink);font-size:.95rem}
+.sf-facts b{display:block;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#7A5A1E}
+@media (min-width:861px){.store-feature{grid-template-columns:460px 1fr;gap:56px}}
