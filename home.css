@@ -124,7 +124,9 @@ a.card:hover,.card.col:hover,.pcard:hover{transform:translateY(-6px);box-shadow:
 .sgrid{display:grid;grid-template-columns:1.25fr .9fr .7fr;grid-auto-rows:220px;gap:18px}
 .s-copy{grid-row:span 2;display:flex;flex-direction:column;justify-content:center;gap:16px}
 .s-video{grid-row:span 2;padding:0}
-.s-video video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.s-video{background:#140c0d;overflow:hidden}
+.s-video .sv-bg{position:absolute;inset:-30px;width:calc(100% + 60px);height:calc(100% + 60px);object-fit:cover;filter:blur(22px) brightness(.5);pointer-events:none}
+.s-video video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
 .s-photo{padding:0}
 .s-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .s-stat{display:flex;flex-direction:column;justify-content:flex-end}
@@ -194,3 +196,4 @@ a.card:hover,.card.col:hover,.pcard:hover{transform:translateY(-6px);box-shadow:
  .card{border-radius:24px}
 }
 @media (prefers-reduced-motion:reduce){.col.art::before{animation:none}}
+.s-stat.dark p:not(.num){color:rgba(247,240,229,.82)}
