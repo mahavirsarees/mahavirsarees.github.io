@@ -45,7 +45,7 @@
   });
 
   /* Store video plays only while visible */
-  var vid = $('.visit-photos video');
+  var vid = $('.stage video');
   if (vid && !reduce && 'IntersectionObserver' in w) {
     new IntersectionObserver(function (es) {
       es.forEach(function (e) { if (e.isIntersecting) { var p = vid.play(); if (p && p.catch) p.catch(function () {}); } else vid.pause(); });
