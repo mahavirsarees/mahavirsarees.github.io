@@ -65,3 +65,11 @@
 .post .post-products{padding-left:0}
 .visit-box .btn-wa{color:#fff}
 .visit-box .btn-light{color:var(--maroon)}
+
+.en-box{background:#fff;border-left-color:var(--maroon)}
+.cmp-wrap{overflow-x:auto;margin:6px 0 18px}
+.cmp{width:100%;border-collapse:collapse;font-size:.95rem;min-width:560px}
+.cmp caption{text-align:left;font-weight:600;color:var(--maroon);margin-bottom:8px}
+.cmp th,.cmp td{border:1px solid rgba(184,134,45,.35);padding:10px 12px;text-align:left;vertical-align:top}
+.cmp thead th{background:var(--maroon);color:var(--ivory);font-weight:600}
+.cmp tbody th{background:var(--sand);font-weight:600}
