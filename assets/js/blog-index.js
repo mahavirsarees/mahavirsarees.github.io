@@ -5,21 +5,33 @@
   var reduce = w.matchMedia && w.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function $$(s, c) { return Array.prototype.slice.call((c || d).querySelectorAll(s)); }
 
-  /* Reveal: elements fade and rise once, in order, as they enter */
+  /* Reveal: only things that come up from below animate. Anything already on screen,
+     above the screen (e.g. after pressing Back), or entering from the top shows at once. */
   var io = null;
+  function showNow(el) { el.classList.add('no-tr', 'is-in'); }
   if (!reduce && 'IntersectionObserver' in w) {
-    root.classList.add('bx-anim');
-    io = new IntersectionObserver(function (entries) {
-      var shown = entries.filter(function (e) { return e.isIntersecting; }).map(function (e) { return e.target; });
-      shown.sort(function (a, b) { return a.getBoundingClientRect().top - b.getBoundingClientRect().top || a.getBoundingClientRect().left - b.getBoundingClientRect().left; });
-      shown.forEach(function (el, i) {
-        el.style.transitionDelay = Math.min(i, 5) * 90 + 'ms';
-        el.classList.add('is-in');
-        io.unobserve(el);
-        setTimeout(function () { el.style.transitionDelay = ''; }, 1600);
+    var els = $$('.bx-hero .bc, [data-rv], .ac');
+    var start = function () {
+      var vh = w.innerHeight;
+      io = new IntersectionObserver(function (entries) {
+        var below = [];
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          io.unobserve(e.target);
+          if (e.boundingClientRect.top < vh * 0.5) showNow(e.target); else below.push(e.target);
+        });
+        below.sort(function (a, b) { var ra = a.getBoundingClientRect(), rb = b.getBoundingClientRect(); return ra.top - rb.top || ra.left - rb.left; });
+        below.forEach(function (el, i) { el.style.transitionDelay = Math.min(i, 4) * 80 + 'ms'; el.classList.add('is-in'); });
+      }, { rootMargin: '0px 0px -6% 0px', threshold: 0.08 });
+      els.forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        if (r.top < vh * 0.92) showNow(el); else io.observe(el);
       });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
-    $$('.bx-hero .bc, [data-rv], .ac').forEach(function (el) { io.observe(el); });
+      root.classList.add('bx-anim'); // hide only what is still below the screen
+    };
+    start();
+    // coming back from the browser cache: make sure everything is visible
+    w.addEventListener('pageshow', function (e) { if (e.persisted) els.forEach(showNow); });
   }
 
   /* Topic filter */
