@@ -13,6 +13,7 @@
     var media = root.querySelector('.ml-show__media'),
         title = root.querySelector('.ml-show__title'),
         desc  = root.querySelector('.ml-show__desc'),
+        link  = root.querySelector('.ml-show__link'),
         num   = root.querySelector('.ml-show__num'),
         total = root.querySelector('.ml-show__total');
 
@@ -38,6 +39,7 @@
         if (on) { im.removeAttribute('aria-hidden'); im.loading = 'eager'; } else { im.setAttribute('aria-hidden', 'true'); }
       });
       title.textContent = p.title; desc.textContent = p.desc;
+      if (link && p.wa) { link.href = p.wa; link.setAttribute('aria-label', 'Enquire about ' + p.title + ' on WhatsApp'); }
       num.textContent = String(cur + 1).padStart(2, '0');
     }
 
@@ -46,6 +48,7 @@
     root.querySelector('.ml-prev').addEventListener('click', function () { show(cur - 1); });
     root.querySelector('.ml-next').addEventListener('click', function () { show(cur + 1); });
     root.addEventListener('keydown', function (e) {
+      if (e.target.closest('a')) return;
       if (e.key === 'ArrowLeft') show(cur - 1);
       else if (e.key === 'ArrowRight') show(cur + 1);
     });
