@@ -13,7 +13,6 @@
     var media = root.querySelector('.ml-show__media'),
         title = root.querySelector('.ml-show__title'),
         desc  = root.querySelector('.ml-show__desc'),
-        link  = root.querySelector('.ml-show__link'),
         num   = root.querySelector('.ml-show__num'),
         total = root.querySelector('.ml-show__total');
 
@@ -38,8 +37,7 @@
         im.classList.toggle('is-active', on);
         if (on) { im.removeAttribute('aria-hidden'); im.loading = 'eager'; } else { im.setAttribute('aria-hidden', 'true'); }
       });
-      title.textContent = p.title; desc.textContent = p.desc; link.href = p.link;
-      link.setAttribute('aria-label', 'View all ' + p.title + ' launch images (opens in a new tab)');
+      title.textContent = p.title; desc.textContent = p.desc;
       num.textContent = String(cur + 1).padStart(2, '0');
     }
 
@@ -48,7 +46,6 @@
     root.querySelector('.ml-prev').addEventListener('click', function () { show(cur - 1); });
     root.querySelector('.ml-next').addEventListener('click', function () { show(cur + 1); });
     root.addEventListener('keydown', function (e) {
-      if (e.target.closest('a')) return;
       if (e.key === 'ArrowLeft') show(cur - 1);
       else if (e.key === 'ArrowRight') show(cur + 1);
     });

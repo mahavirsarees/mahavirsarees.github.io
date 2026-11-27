@@ -114,9 +114,7 @@ to{opacity:1;transform:none}}
 .ml-scope .ml-gal__grid{display:flex;flex-wrap:wrap;gap:var(--ml-gap)}
 .ml-scope .ml-gal__grid::after{content:"";flex-grow:999999}
 .ml-scope .ml-gal__item{min-width:0}
-.ml-scope .ml-gal__item a{display:block;border-radius:4px;outline-offset:3px}
 .ml-scope .ml-gal__item img{display:block;width:100%;height:auto;object-fit:cover;border-radius:4px;background:#e9dfcf}
-.ml-scope .ml-gal__item a:focus-visible{outline:3px solid var(--ml-maroon)}
 .ml-scope .ml-gal__item figcaption{font-size:13px;color:var(--ml-grey);margin-top:8px;line-height:1.4}
 .ml-scope .ml-gal__item figcaption b{color:var(--ml-maroon);font-weight:500}
 
