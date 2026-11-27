@@ -14,13 +14,7 @@
   gsap.registerPlugin(ScrollTrigger);
   root.classList.add('js-anim');
 
-  // Hero entrance
-  var hero = gsap.utils.toArray('.hb [data-in]');
-  gsap.to(hero, { opacity: 1, y: 0, scale: 1, duration: 1.1, ease: 'power3.out', stagger: .1, delay: .1 });
-  gsap.from('.c-feature .r1', { scale: .6, opacity: 0, duration: 1.4, ease: 'power3.out', delay: .3 });
-  gsap.from('.c-feature .r2', { scale: .4, opacity: 0, duration: 1.4, ease: 'power3.out', delay: .45 });
-  gsap.from('.feat-cut', { yPercent: 18, opacity: 0, duration: 1.4, ease: 'power3.out', delay: .55 });
-  gsap.from('.big-word', { xPercent: -20, opacity: 0, duration: 1.6, ease: 'power3.out', delay: .4 });
+  // (old .hb hero entrance removed: the launch hero animates itself)
 
   // Everything else rises in as it enters
   gsap.utils.toArray('.mx [data-in]').forEach(function (el) {
@@ -33,10 +27,7 @@
 
   var mm = gsap.matchMedia();
   mm.add('(min-width: 901px)', function () {
-    // Feature card: rings rotate/drift as you scroll away
-    gsap.to('.c-feature .r1', { rotate: 40, scale: 1.08, ease: 'none', scrollTrigger: { trigger: '.hb', start: 'top top', end: 'bottom top', scrub: true } });
-    gsap.to('.c-feature .r2', { scale: .9, yPercent: 8, ease: 'none', scrollTrigger: { trigger: '.hb', start: 'top top', end: 'bottom top', scrub: true } });
-    gsap.to('.feat-cut', { yPercent: -6, ease: 'none', scrollTrigger: { trigger: '.hb', start: 'top top', end: 'bottom top', scrub: true } });
+    // (old .hb feature-card scroll effects removed with the old hero)
     // Floating orbs drift at different speeds
     [['.o1', -160], ['.o2', 260], ['.o3', -320], ['.o4', 200]].forEach(function (o) {
       gsap.to(o[0], { y: o[1], ease: 'none', scrollTrigger: { trigger: '.mx', start: 'top top', end: 'bottom bottom', scrub: true } });
