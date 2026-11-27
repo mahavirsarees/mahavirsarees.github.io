@@ -74,53 +74,6 @@ to{opacity:1;transform:none}}
 .ml-scope .ml-btn{width:100%}
 }
 
-/* ---------------- Launch showcase ---------------- */
-.ml-scope.ml-show{background:var(--ml-ivory);border-top:1px solid rgba(184,134,45,.35)}
-.ml-scope .ml-show__in{max-width:1200px;margin:0 auto;padding:clamp(48px,7vw,96px) clamp(20px,5vw,56px)}
-.ml-scope .ml-eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--ml-gold);margin-bottom:10px}
-.ml-scope .ml-heading{font-family:Poppins,sans-serif;font-weight:500;font-size:clamp(28px,3.2vw,44px);color:var(--ml-maroon);margin-bottom:clamp(28px,4vw,48px)}
-.ml-scope .ml-show__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:center}
-.ml-scope .ml-show__media{position:relative;aspect-ratio:4/5;border:1px solid var(--ml-gold);padding:10px;background:#fff}
-.ml-scope .ml-show__media img{position:absolute;inset:10px;width:calc(100% - 20px);height:calc(100% - 20px);object-fit:cover;opacity:0;transition:opacity .7s ease}
-.ml-scope .ml-show__media img.is-active{opacity:1}
-.ml-scope .ml-show__count{font-size:13px;letter-spacing:.16em;color:var(--ml-grey);margin-bottom:14px}
-.ml-scope .ml-show__count b{color:var(--ml-maroon);font-weight:500}
-.ml-scope .ml-show__title{font-family:Poppins,sans-serif;font-weight:500;font-size:clamp(34px,3.6vw,52px);line-height:1.1;color:var(--ml-maroon)}
-.ml-scope .ml-show__rule{width:64px;height:2px;background:var(--ml-gold);margin:20px 0}
-.ml-scope .ml-show__desc{font-weight:300;font-size:16px;line-height:1.75;color:#3a3a3a;max-width:460px;min-height:5.3em}
-.ml-scope .ml-show__link{display:inline-flex;align-items:center;gap:10px;margin-top:26px;min-height:48px;padding:0 24px;border-radius:999px;background:var(--ml-pop);color:#fff;text-decoration:none;font-weight:500;font-size:15px;transition:background-color .25s}
-.ml-scope .ml-show__link:hover{background:var(--ml-pop-dark)}
-.ml-scope .ml-show__link:focus-visible{outline:3px solid var(--ml-maroon);outline-offset:3px;background:var(--ml-pop-dark)}
-.ml-scope .ml-show__controls{display:flex;gap:12px;margin-top:36px}
-.ml-scope .ml-ctrl{width:52px;height:52px;border-radius:50%;border:1px solid var(--ml-maroon);background:transparent;color:var(--ml-maroon);display:grid;place-items:center;cursor:pointer;padding:0;transition:background-color .25s,color .25s}
-.ml-scope .ml-ctrl svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8}
-.ml-scope .ml-ctrl:hover{background:var(--ml-maroon);color:var(--ml-ivory)}
-.ml-scope .ml-ctrl:focus-visible{outline:3px solid var(--ml-maroon);outline-offset:3px;background:var(--ml-maroon);color:var(--ml-ivory)}
-.ml-scope .ml-ctrl:active{background:#5a0b17;color:var(--ml-ivory)}
-
-@media (max-width:820px){
-
-.ml-scope .ml-show__grid{grid-template-columns:1fr}
-.ml-scope .ml-show__info{text-align:center}
-.ml-scope .ml-show__rule{margin:16px auto}
-.ml-scope .ml-show__desc{margin:0 auto;min-height:0}
-.ml-scope .ml-show__controls{justify-content:center;margin-top:26px}
-.ml-scope .ml-show__link{width:100%;justify-content:center}
-}
-
-/* ---------------- Launch gallery ---------------- */
-.ml-scope.ml-gal{background:var(--ml-ivory);border-top:1px solid rgba(184,134,45,.35);--ml-gap:16px}
-.ml-scope .ml-gal__in{max-width:1320px;margin:0 auto;padding:clamp(44px,6vw,88px) clamp(16px,4vw,48px)}
-.ml-scope .ml-gal__grid{display:flex;flex-wrap:wrap;gap:var(--ml-gap)}
-.ml-scope .ml-gal__grid::after{content:"";flex-grow:999999}
-.ml-scope .ml-gal__item{min-width:0}
-.ml-scope .ml-gal__item img{display:block;width:100%;height:auto;object-fit:cover;border-radius:4px;background:#e9dfcf}
-.ml-scope .ml-gal__item figcaption{font-size:13px;color:var(--ml-grey);margin-top:8px;line-height:1.4}
-.ml-scope .ml-gal__item figcaption b{color:var(--ml-maroon);font-weight:500}
-
-@media (max-width:600px){ .ml-scope.ml-gal{--ml-gap:20px}
-.ml-scope .ml-gal__item{flex:1 1 100%!important} }
-
 /* ---------------- Scroll reveal (one main reveal per section) ----------------
    Content is hidden only after launch-sections.js adds .ml-rv to <html>. */
 .ml-rv [data-ml-reveal] [data-ml-r]{opacity:0;transform:translateY(8px);transition:opacity .6s ease-out,transform .6s ease-out}
@@ -133,6 +86,6 @@ to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){
 
 .ml-scope .ml-hero__media{animation:none!important;opacity:1!important;transform:none!important}
-.ml-scope .ml-btn,.ml-scope .ml-ctrl,.ml-scope .ml-show__link,.ml-scope .ml-show__media img{transition:none}
+.ml-scope .ml-btn{transition:none}
 .ml-rv [data-ml-reveal] [data-ml-r]{opacity:1!important;transform:none!important;transition:none!important}
 }
